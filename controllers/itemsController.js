@@ -46,7 +46,7 @@ function processDJAK(response) {
   return {
     name: Djak.state.product.name,
     price: Djak.state.product.price,
-    imageUrl: 'https://www.djaksport.com' + Djak.state.product.image.split('&')[0]
+    imageUrl: 'https://www.djaksport.com/' + Djak.state.product.image.split('&')[0]
   };
 }
 function processSVISION(response) {
