@@ -5,8 +5,14 @@ exports.getItems = (req, res) => {
     if (error) {
       return res.status(404).send();
     }
-    const Djak = processData(response);
-    res.send(Djak);
+    const data = JSON.parse(response.body);
+    request(data[0].itemUrl, null, (error, response) => {
+      if (error) {
+        return res.status(404).send();
+      }
+      const result = processData(response);
+      res.send(result);
+    });
   });
 };
 
@@ -14,7 +20,7 @@ function processData(response) {
   let data = response.body;
   let skripta = data.slice(data.lastIndexOf('<script'), data.length);
   let kod = skripta.slice(skripta.indexOf('>') + 1, skripta.lastIndexOf('</'));
-  // var Djak = { state: {} };
-  // eval(kod);
-  return kod;
+  var Djak = { state: {} };
+  eval(kod);
+  return Djak;
 }
