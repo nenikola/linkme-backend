@@ -5,6 +5,16 @@ exports.getItems = (req, res) => {
     if (error) {
       return res.status(404).send();
     }
-    res.send(response.body);
+    const Djak = processData(response);
+    res.send(Djak);
   });
 };
+
+function processData(response) {
+  let data = response.body;
+  let skripta = data.slice(data.lastIndexOf('<script'), data.length);
+  let kod = skripta.slice(skripta.indexOf('>') + 1, skripta.lastIndexOf('</'));
+  var Djak = { state: {} };
+  eval(kod);
+  return Djak;
+}
