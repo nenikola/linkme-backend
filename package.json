@@ -1,0 +1,24 @@
+{
+  "name": "herokutry",
+  "version": "1.0.0",
+  "description": "Simple API for trying heroku services",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nenikola/herokuTry.git"
+  },
+  "author": "Nikola Nedeljkovic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nenikola/herokuTry/issues"
+  },
+  "homepage": "https://github.com/nenikola/herokuTry#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {}
+}
