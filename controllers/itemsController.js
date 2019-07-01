@@ -16,5 +16,5 @@ function processData(response) {
   let kod = skripta.slice(skripta.indexOf('>') + 1, skripta.lastIndexOf('</'));
   // var Djak = { state: {} };
   // eval(kod);
-  return kod1;
+  return kod;
 }
