@@ -14,7 +14,7 @@ function processData(response) {
   let data = response.body;
   let skripta = data.slice(data.lastIndexOf('<script'), data.length);
   let kod = skripta.slice(skripta.indexOf('>') + 1, skripta.lastIndexOf('</'));
-  var Djak = { state: {} };
-  eval(kod);
-  return Djak;
+  // var Djak = { state: {} };
+  // eval(kod);
+  return kod1;
 }
