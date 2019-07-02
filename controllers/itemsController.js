@@ -21,8 +21,10 @@ exports.getItems = (req, res) => {
       );
     });
     Promise.all(resultPromises).then(responses => {
-      responses.forEach(element => {
-        results.push(processData(element.itemUrl, element.response));
+      responses.forEach((element, i) => {
+        let res = processData(element.itemUrl, element.response);
+        res.id = i;
+        results.push(res);
       });
       res.header('Access-Control-Allow-Origin', '*');
       res.send(results);
@@ -32,9 +34,13 @@ exports.getItems = (req, res) => {
 
 function processData(url, response) {
   if (url.indexOf('djak') != -1) {
-    return processDJAK(response);
+    let res = processDJAK(response);
+    res.linkUrl = url;
+    return res;
   } else if (url.indexOf('sportvision') != -1) {
-    return processSVISION(response);
+    let res = processSVISION(response);
+    res.linkUrl = url;
+    return res;
   }
 }
 
