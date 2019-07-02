@@ -24,6 +24,7 @@ exports.getItems = (req, res) => {
       responses.forEach(element => {
         results.push(processData(element.itemUrl, element.response));
       });
+      res.header("Access-Control-Allow-Origin", "*")
       res.send(results);
     });
   });
