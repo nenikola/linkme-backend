@@ -54,8 +54,8 @@ function processSVISION(response) {
   let index1 = data.indexOf('json') + 6;
   let index2 = data.indexOf(`</script>`, index1);
   let skripta = data.slice(index1, index2);
-  var OBJ;
-  skripta = 'OBJ=' + skripta;
+  var obj;
+  skripta =  obj=' + skripta;
   eval(skripta);
-  return { name: OBJ.name, price: OBJ.offers.price + ' din.', imageUrl: OBJ.image };
+  return { name: obj.name, price: obj.offers.price + ' din.', imageUrl: obj.image };
 }
