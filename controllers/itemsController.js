@@ -24,7 +24,7 @@ exports.getItems = (req, res) => {
       responses.forEach(element => {
         results.push(processData(element.itemUrl, element.response));
       });
-      res.header("Access-Control-Allow-Origin", "*")
+      res.header('Access-Control-Allow-Origin', '*');
       res.send(results);
     });
   });
@@ -56,7 +56,7 @@ function processSVISION(response) {
   let index2 = data.indexOf(`</script>`, index1);
   let skripta = data.slice(index1, index2);
   var obj;
-  skripta =  obj=' + skripta;
+  skripta = 'obj=' + skripta;
   eval(skripta);
   return { name: obj.name, price: obj.offers.price + ' din.', imageUrl: obj.image };
 }
